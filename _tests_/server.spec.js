@@ -6,17 +6,21 @@ describe('server.js', () => {
         expect(process.env.DB_ENV).toBe("testing");
     })
 
-    // describe('Get /', () => {
-    //     it('should return 200', async () => {
-    //         const res = await request(server).get('/');
-    //         expect(res.status).toBe(200);
-    //     })
-    //     //return JSON
-    //     it('should return JSON', async () => {
-    //         const res = await request(server).get('/');
-    //         expect(res.type).toBe('application/json');
-    //     })
-    //     //return response
-    // })
+    describe('Get /', () => {
+        it('should return 200', async () => {
+            const res = await request(server).get('/');
+            expect(res.status).toBe(200);
+        })
+        //return JSON
+        it('should return JSON', async () => {
+            const res = await request(server).get('/');
+            expect(res.type).toBe('application/json');
+        })
+        //return response
+        it('should return correct response', async () => {
+            const res = await request(server).get('/');
+            expect(res.body.api).toBe("Server live")
+        })
+    })
 })
 
