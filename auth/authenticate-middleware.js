@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
         res.status(401).json({message: "Incorrect Username/Password"})
       }
       else {
-        req.decodedJwt decodedToken;
+        req.decodedJwt = decodedToken;
         next();
       }
     })

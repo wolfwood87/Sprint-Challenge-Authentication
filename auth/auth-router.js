@@ -31,16 +31,16 @@ router.post('/login', (req, res) => {
 
         res.status(200).json({message: `Welcome back ${user.username}`, token: token})
       }
+      else {
+        res.status(500).json({message: "Error on login"})
+      }
     })
-    .else {
-      res.status(500).json({message: "Error on login"})
-    }
 });
 
 
 function createToken(user) {
   const payload = {
-    userid = user.id,
+    userid: user.id,
     user: user.username
   }
 
